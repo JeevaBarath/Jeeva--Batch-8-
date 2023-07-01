@@ -1,0 +1,7 @@
+create database db21;
+create table student(stu_id int primary key,s_name varchar(30),department text);
+insert into student values
+(1,"AAA","MECH"),
+(2,"BBB","CIVIL"),
+(3,"CCC","BIO-MEDI");
+select * from student;
