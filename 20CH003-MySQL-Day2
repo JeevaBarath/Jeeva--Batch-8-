@@ -1,0 +1,11 @@
+create database University;
+create table students(stu_id int primary key,stu_name varchar(50),stu_age int,stu_major varchar(50));
+insert into students values(1,"Jeeva",20,"Computer");
+insert into students values(2,"Vichu",21,"arts");
+insert into students values(3,"Lokesh",20,"Commerce");
+insert into students values(4,"Barath",19,"Bio");
+insert into students values(5,"Krish",22,"Pure science");
+select*from students;
+select * from students where stu_major="Computer";
+select*from students where stu_age>21;
+DELETE FROM students WHERE stu_id=4;
