@@ -1,0 +1,26 @@
+ create database BooksDB;
+ create table Books(bk_id int primary key auto_increment,b_title text,author varchar(15),gener text,p_year int,price int);
+ insert into Books values(1,"aaa","Jeeva","Tamil",2000,2);
+ insert into Books values(2,"bbb","barath","English",2001,5);
+ insert into Books values(3,"ccc","Jeeva.M","Maths",2004,100);
+ insert into Books values(4,"ddd","Vichu","Science",2003,50);
+ insert into Books values(5,"eee","Nandhu","S_Science",2002,45);
+ select*from Books;
+select *from Books where author ="Barath";
+update Books set price="200" where bk_id="1";
+delete from Books where bk_id="3";
+select*from Books;
+create  table Authors (a_id int primary key,au_native text,au_no varchar(10),au_married_status varchar(10),bk_id int,constraint fk_bk_id foreign key(bk_id) references Books(bk_id));
+insert into  Authors values(1,"Attur","123","Single",1);
+insert into  Authors values(2,"Sarvoy","234","Single",2);  
+insert into  Authors values(3,"Sathapadi","345","Commited",3);
+insert into  Authors values(4,"thalaivasal","458","loving",4);
+insert into  Authors values(5,"metala","567","married",5);
+select*from Authors;
+select*from Books;
+select Authors.a_id,Authors.au_native,Authors.au_no,Authors.au_married_status from Authors 
+inner join Books on Authors.bk_id=Books.bk_id order by a_id;
+select Authors.a_id,Authors.au_native,Authors.au_no,Authors.au_married_status from Authors 
+left join Books on Authors.bk_id=Books.bk_id order by a_id;
+select Authors.a_id,Authors.au_native,Authors.au_no,Authors.au_married_status from Authors 
+right join Books on Authors.bk_id=Books.bk_id order by a_id;
