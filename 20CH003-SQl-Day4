@@ -1,0 +1,33 @@
+create database TradingDB;
+create table Customer(
+customer_id int primary key,
+customer_name varchar(15),
+customer_native text,
+cu_phno varchar(10),
+goods_bying_amt int);
+create table Transactions(
+goods_id int primary key,
+goods_name text,
+no_of_goods int,
+goods_sell_amt int,
+customer_id int,
+constraint fk_g_id foreign key (customer_id)references Customer(customer_id));
+
+insert customer values
+(1,"Jeeva","sarvoy","6380662061",5000 ),
+(2,"Sri","attur","6380662062",4500 ),
+(3,"varshan","attr","8523923214",4670),
+(4,"Barath","sathapadi","6380452063",3500 ),
+(5,"Jeeva.M","sarvoy","6381232063",3999 ),
+(6,"saran","sambery","6387892063",3750 );
+insert Transactions values
+(9,"glosaries",25,5000,1),
+(8,"glosaries",23,4500,2),
+(7,"glosaries",20,4670,3),
+(6,"glosaries",15,3500,4),
+(91,"glosaries",17,3999,5),
+(15,"glosaries",16,3750,6);
+select Transactions.goods_id,Transactions.goods_name,Transactions.no_of_goods,Customer.goods_bying_amt from transactions
+inner join Customer on Transactions.customer_id=Customer.customer_id order by goods_id;
+select goods_id,goods_name,goods_sell_amt from Transactions where goods_sell_amt>4000;
+
